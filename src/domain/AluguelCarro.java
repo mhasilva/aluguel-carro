@@ -58,12 +58,12 @@ public class AluguelCarro {
 
     @Override
     public String toString() {
-        return "AluguelCarro{" +
-                "inicio=" + inicio +
+        return "AluguelCarro{\n" +
+                " inicio=" + inicio +
                 ", fim=" + fim +
-                ", veiculo=" + veiculo +
-                ", recibo=" + recibo +
-                '}';
+                ",\n veiculo=" + veiculo +
+                ",\n recibo=" + recibo +
+                "\n}";
     }
 
 }
