@@ -2,7 +2,6 @@ package service;
 
 public class BrasilTaxaService {
 
-
     public double taxa(double quantia){
 
         if (quantia <= 100){
