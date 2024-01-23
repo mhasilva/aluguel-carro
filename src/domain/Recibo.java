@@ -38,6 +38,7 @@ public class Recibo {
         return "Recibo{" +
                 "pagamentoBase=" + pagamentoBase +
                 ", tax=" + tax +
+                ", total=" + getPagamentoTotal() +
                 '}';
     }
 
