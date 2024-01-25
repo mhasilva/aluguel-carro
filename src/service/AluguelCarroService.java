@@ -2,6 +2,7 @@ package service;
 
 import domain.AluguelCarro;
 import domain.Recibo;
+import service.interfaces.TaxaService;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -13,15 +14,12 @@ public class AluguelCarroService {
     private double precoPorHora;
     private double precoPorDia;
 
-    private BrasilTaxaService brasilTaxaService = new BrasilTaxaService();
+    private TaxaService taxaService;
 
-    public AluguelCarroService() {
-    }
-
-    public AluguelCarroService(double precoPorHora, double precoPorDia, BrasilTaxaService brasilTaxaService) {
+    public AluguelCarroService(double precoPorHora, double precoPorDia, TaxaService taxaService) {
         this.precoPorHora = precoPorHora;
         this.precoPorDia = precoPorDia;
-        this.brasilTaxaService = brasilTaxaService;
+        this.taxaService = taxaService;
     }
 
     public void processarRecibo(AluguelCarro aluguelCarro){
@@ -44,7 +42,7 @@ public class AluguelCarroService {
                 ? (precoPorHora * quantidadeHoras)
                 : (precoPorDia * quantidadeDias);
 
-        double taxa = brasilTaxaService.taxa(pagamentoBase);
+        double taxa = taxaService.taxa(pagamentoBase);
 
         aluguelCarro.setRecibo(new Recibo(pagamentoBase, taxa));
     }
