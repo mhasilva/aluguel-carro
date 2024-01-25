@@ -1,6 +1,8 @@
 package service;
 
-public class BrasilTaxaService {
+import service.interfaces.TaxaService;
+
+public class BrasilTaxaService implements TaxaService {
 
     public double taxa(double quantia){
 

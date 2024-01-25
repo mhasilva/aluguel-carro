@@ -2,6 +2,7 @@ import domain.AluguelCarro;
 import domain.Veiculo;
 import service.AluguelCarroService;
 import service.BrasilTaxaService;
+import service.EstadosUnidosTaxaService;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -32,9 +33,10 @@ public class Main {
         System.out.print("Quanto custo o servico por dia: ");
         double precoPorDia = scanner.nextDouble();
 
-        AluguelCarroService service = new AluguelCarroService(precoPorHora, precoPorDia, new BrasilTaxaService());
+        var serviceBrasil = new AluguelCarroService(precoPorHora, precoPorDia, new BrasilTaxaService());
+        var serviceEstadosUnidos = new AluguelCarroService(precoPorHora, precoPorDia, new EstadosUnidosTaxaService());
 
-        service.processarRecibo(aluguel);
+        serviceBrasil.processarRecibo(aluguel);
 
         System.out.println(aluguel);
     }
